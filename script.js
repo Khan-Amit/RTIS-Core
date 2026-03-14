@@ -31,6 +31,12 @@ if(!hsDatabase[product]){return;}
 
 document.getElementById("hs").value = hsDatabase[product].hs;
 
+document.getElementById("marketLow").value =
+hsDatabase[product].marketLow;
+
+document.getElementById("marketHigh").value =
+hsDatabase[product].marketHigh;
+
 }
 
 
@@ -76,4 +82,4 @@ document.getElementById("pop").innerHTML =
 document.getElementById("tds").innerHTML =
 "TDS Score: " + tds.toFixed(2);
 
-  }
+}
