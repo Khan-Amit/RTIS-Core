@@ -1,63 +1,23 @@
-const HS_DATABASE = [
+const hsDatabase = {
 
-{
-product: "tshirt",
-category: "Garments",
-hs: "610910"
-},
+"T-Shirt":"6109",
+"Jeans":"6203",
+"Jacket":"6201",
+"Cotton Shirt":"6205",
 
-{
-product: "jeans",
-category: "Garments",
-hs: "620342"
-},
+"Smartphone":"8517",
+"Laptop":"8471",
+"Headphones":"8518",
+"Tablet":"8471",
 
-{
-product: "face cream",
-category: "Cosmetics",
-hs: "330499"
-},
+"Rice":"1006",
+"Sugar":"1701",
+"Coffee":"0901",
+"Tea":"0902",
 
-{
-product: "hair color",
-category: "Cosmetics",
-hs: "330590"
-},
+"Lipstick":"3304",
+"Perfume":"3303",
+"Face Cream":"3304",
+"Shampoo":"3305"
 
-{
-product: "plastic kitchenware",
-category: "Household",
-hs: "392410"
-},
-
-{
-product: "ceramic plate",
-category: "Household",
-hs: "691200"
-},
-
-{
-product: "electric kettle",
-category: "Electronics",
-hs: "851610"
-},
-
-{
-product: "led light",
-category: "Electronics",
-hs: "940540"
-},
-
-{
-product: "rice",
-category: "Food",
-hs: "100630"
-},
-
-{
-product: "green tea",
-category: "Food",
-hs: "090210"
-}
-
-];
+};
