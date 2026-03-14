@@ -11,8 +11,8 @@
 
 body{
 font-family:Arial;
+background:#f4f4f4;
 padding:20px;
-background:#f5f5f5;
 }
 
 .card{
@@ -43,16 +43,18 @@ width:100%;
 
 <body>
 
-<h2>RTIS-Core Trade Simulator</h2>
+<h2>RTIS Core Trade Intelligence Simulator</h2>
 
 <div class="card">
 
 <h3>Product Selection</h3>
 
 Category
+
 <select id="category" onchange="loadProducts()">
 
 <option value="">Select Category</option>
+
 <option value="garments">Garments</option>
 <option value="electronics">Electronics</option>
 <option value="food">Food</option>
@@ -61,17 +63,23 @@ Category
 </select>
 
 Product
+
 <select id="product" onchange="showHS()">
-<option>Select Product</option>
+
+<option value="">Select Product</option>
+
 </select>
 
 HS Code
+
 <input id="hs" readonly>
 
-Estimated Market Size Low ($)
+Market Size Low ($)
+
 <input id="marketLow" readonly>
 
-Estimated Market Size High ($)
+Market Size High ($)
+
 <input id="marketHigh" readonly>
 
 </div>
@@ -79,15 +87,26 @@ Estimated Market Size High ($)
 
 <div class="card">
 
-<h3>Product Information</h3>
+<h3>Cost Information</h3>
 
 Factory Price ($)
+
 <input id="price" value="1">
 
 Quantity
+
 <input id="qty" value="1000">
 
+Freight ($)
+
+<input id="freight" value="20">
+
+Insurance ($)
+
+<input id="insurance" value="10">
+
 Country
+
 <select id="country">
 
 <option value="bangladesh">Bangladesh</option>
@@ -100,12 +119,6 @@ Country
 
 </select>
 
-Freight ($)
-<input id="freight" value="15">
-
-Insurance ($)
-<input id="insurance" value="15">
-
 </div>
 
 
@@ -114,12 +127,14 @@ Insurance ($)
 <h3>Market Simulation</h3>
 
 Selling Price ($)
+
 <input id="sell" value="2">
 
-Expected Sales (%)
+Expected Sales %
+
 <input id="sales" value="80">
 
-<button onclick="calculate()">Calculate Trade</button>
+<button onclick="calculate()">Run Trade Simulation</button>
 
 </div>
 
@@ -129,11 +144,15 @@ Expected Sales (%)
 <h3>Results</h3>
 
 <div id="landing">Landing Cost:</div>
+
 <div id="profit">Profit:</div>
+
 <div id="pop">POP Score:</div>
+
 <div id="tds">TDS Score:</div>
 
 </div>
+
 
 <script src="product_categories.js"></script>
 <script src="hs_database.js"></script>
