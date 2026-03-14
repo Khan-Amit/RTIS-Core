@@ -15,10 +15,6 @@ color:black;
 padding:20px;
 }
 
-h1{
-margin-bottom:30px;
-}
-
 .card{
 background:#f5f5f5;
 padding:20px;
@@ -45,12 +41,7 @@ font-size:16px;
 
 </style>
 
-<script src="hs_database.js"></script>
-<script src="tax_engine.js"></script>
-<script src="script.js"></script>
-
 </head>
-
 
 <body>
 
@@ -75,13 +66,13 @@ onkeyup="searchProduct()"
 </select>
 
 <label>HS Code</label>
-<input type="text" id="hs" readonly>
+<input id="hs" readonly>
 
 <label>Market Size Low ($)</label>
-<input type="text" id="marketLow" readonly>
+<input id="marketLow" readonly>
 
 <label>Market Size High ($)</label>
-<input type="text" id="marketHigh" readonly>
+<input id="marketHigh" readonly>
 
 </div>
 
@@ -110,7 +101,6 @@ onkeyup="searchProduct()"
 <option value="russia">Russia</option>
 
 </select>
-
 
 <label>Freight ($)</label>
 <input id="freight" value="15">
@@ -151,6 +141,11 @@ Calculate Trade
 
 </div>
 
+
+
+<script src="hs_database.js"></script>
+<script src="tax_engine.js"></script>
+<script src="script.js"></script>
 
 </body>
 </html>
