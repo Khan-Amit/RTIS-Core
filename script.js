@@ -1,17 +1,17 @@
 function searchProduct(){
 
-let input=document.getElementById("searchBox").value.toLowerCase();
-let select=document.getElementById("product");
+let input = document.getElementById("searchBox").value.toLowerCase();
+let select = document.getElementById("product");
 
-select.innerHTML="<option>Select Product</option>";
+select.innerHTML = "<option>Select Product</option>";
 
-for(let p in hsDatabase){
+for(let product in hsDatabase){
 
-if(p.toLowerCase().includes(input)){
+if(product.toLowerCase().includes(input)){
 
-let option=document.createElement("option");
-option.value=p;
-option.text=p;
+let option = document.createElement("option");
+option.value = product;
+option.text = product;
 
 select.appendChild(option);
 
@@ -25,7 +25,7 @@ select.appendChild(option);
 
 function showHS(){
 
-let product=document.getElementById("product").value;
+let product = document.getElementById("product").value;
 
 if(!hsDatabase[product]) return;
 
