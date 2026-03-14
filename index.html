@@ -3,110 +3,109 @@
 
 <head>
 
-<meta charset="UTF-8">
+<title>RTIS Core Trade Calculator</title>
 
-<title>RTIS-Core Trade Intelligence Engine</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link rel="stylesheet" href="style.css">
+<style>
 
-<script src="database/hs_database.js"></script>
-<script src="tax/country_tax.js"></script>
+body{
+font-family:Arial;
+padding:20px;
+background:#f5f5f5;
+}
 
-<script src="engine/shipping_engine.js"></script>
-<script src="engine/risk_engine.js"></script>
-<script src="engine/profit_engine.js"></script>
+.card{
+background:white;
+padding:20px;
+margin-bottom:20px;
+border-radius:8px;
+}
 
-<script src="script.js"></script>
+input,select{
+width:100%;
+padding:8px;
+margin-top:5px;
+margin-bottom:10px;
+}
+
+button{
+background:black;
+color:white;
+padding:10px;
+border:none;
+width:100%;
+}
+
+</style>
 
 </head>
 
-
 <body>
 
-<h1>RTIS-Core Trade Intelligence Engine</h1>
+<h2>RTIS-Core Trade Simulator</h2>
 
-<div class="box">
+<div class="card">
 
-<h2>Country Selection</h2>
+<h3>Product Information</h3>
 
-<label>Import Country</label>
+Factory Price ($)
+<input id="price" value="1">
 
+Quantity
+<input id="qty" value="1000">
+
+Country
 <select id="country">
 
 <option value="bangladesh">Bangladesh</option>
 <option value="thailand">Thailand</option>
 <option value="china">China</option>
+<option value="india">India</option>
+<option value="usa">USA</option>
+<option value="eu">EU</option>
 <option value="russia">Russia</option>
 
 </select>
 
-</div>
+Freight ($)
+<input id="freight" value="15">
 
-
-
-<div class="box">
-
-<h2>Product Search</h2>
-
-<label>Product Name</label>
-
-<input type="text" id="product" placeholder="Example: tshirt">
-
-<button onclick="searchHS()">Find HS Code</button>
-
-<p id="hs_result"></p>
+Insurance ($)
+<input id="insurance" value="15">
 
 </div>
 
 
+<div class="card">
 
-<div class="box">
+<h3>Market Simulation</h3>
 
-<h2>Cost Inputs</h2>
+Selling Price ($)
+<input id="sell" value="2">
 
-<label>Factory Price ($)</label>
-<input type="number" id="price">
-
-<label>Quantity</label>
-<input type="number" id="qty">
-
-<label>Freight Cost ($)</label>
-<input type="number" id="freight">
-
-<label>Insurance ($)</label>
-<input type="number" id="insurance">
-
-</div>
-
-
-
-<div class="box">
-
-<h2>Market Simulation</h2>
-
-<label>Selling Price ($)</label>
-<input type="number" id="sell">
-
-<label>Expected Sales (%)</label>
-<input type="number" id="sales">
+Expected Sales (%)
+<input id="sales" value="80">
 
 <button onclick="calculate()">Calculate Trade</button>
 
 </div>
 
 
+<div class="card">
 
-<div class="box">
+<h3>Results</h3>
 
-<h2>Results</h2>
-
-<p id="landing">Landing Cost:</p>
-<p id="profit">Profit:</p>
-<p id="pop">POP Score:</p>
-<p id="tds">TDS Score:</p>
+<div id="landing">Landing Cost:</div>
+<div id="profit">Profit:</div>
+<div id="pop">POP Score:</div>
+<div id="tds">TDS Score:</div>
 
 </div>
 
+
+<script src="tax_engine.js"></script>
+<script src="script.js"></script>
 
 </body>
 
