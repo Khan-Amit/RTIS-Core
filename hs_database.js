@@ -1,15 +1,27 @@
 const hsDatabase = {
 
-"Cotton T-Shirt":{
+"Garment T-Shirt":{
 hs:"6109",
 marketLow:5000000,
 marketHigh:12000000
 },
 
-"Men Jacket":{
+"Garment Polo Shirt":{
+hs:"6105",
+marketLow:4000000,
+marketHigh:10000000
+},
+
+"Garment Men Jacket":{
 hs:"6203",
 marketLow:4000000,
 marketHigh:9000000
+},
+
+"Garment Jeans":{
+hs:"6203",
+marketLow:7000000,
+marketHigh:15000000
 },
 
 "Smartphone":{
