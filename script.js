@@ -6,6 +6,8 @@ let productSelect = document.getElementById("product");
 
 productSelect.innerHTML = "";
 
+if(!categories[category]){return;}
+
 categories[category].forEach(function(p){
 
 let option = document.createElement("option");
@@ -25,7 +27,9 @@ function showHS(){
 
 let product = document.getElementById("product").value;
 
-document.getElementById("hs").value = hsDatabase[product];
+if(!hsDatabase[product]){return;}
+
+document.getElementById("hs").value = hsDatabase[product].hs;
 
 }
 
@@ -72,4 +76,4 @@ document.getElementById("pop").innerHTML =
 document.getElementById("tds").innerHTML =
 "TDS Score: " + tds.toFixed(2);
 
-                                         }
+  }
