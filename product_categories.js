@@ -4,28 +4,44 @@ garments:[
 "T-Shirt",
 "Jeans",
 "Jacket",
-"Cotton Shirt"
+"Cotton Shirt",
+"Sweater",
+"Men Suit",
+"Women Suit",
+"Underwear"
 ],
 
 electronics:[
 "Smartphone",
 "Laptop",
+"Tablet",
 "Headphones",
-"Tablet"
+"Microphone",
+"Camera",
+"Television",
+"Router"
 ],
 
 food:[
 "Rice",
 "Sugar",
 "Coffee",
-"Tea"
+"Tea",
+"Wheat",
+"Milk Powder",
+"Butter",
+"Cheese"
 ],
 
 cosmetics:[
 "Lipstick",
 "Perfume",
 "Face Cream",
-"Shampoo"
+"Shampoo",
+"Soap",
+"Toothpaste",
+"Skin Lotion",
+"Hair Oil"
 ]
 
 };
