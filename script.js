@@ -1,12 +1,12 @@
 function calculate(){
 
-let price = Number(document.getElementById("price").value) || 0;
-let qty = Number(document.getElementById("qty").value) || 0;
-let freight = Number(document.getElementById("freight").value) || 0;
-let insurance = Number(document.getElementById("insurance").value) || 0;
+let price = Number(document.getElementById("price").value);
+let qty = Number(document.getElementById("qty").value);
+let freight = Number(document.getElementById("freight").value);
+let insurance = Number(document.getElementById("insurance").value);
 
-let sell = Number(document.getElementById("sell").value) || 0;
-let sales = Number(document.getElementById("sales").value) || 0;
+let sell = Number(document.getElementById("sell").value);
+let sales = Number(document.getElementById("sales").value);
 
 let country = document.getElementById("country").value;
 
@@ -18,21 +18,16 @@ let taxCost = baseCost * taxRate / 100;
 
 let landingCost = baseCost + freight + insurance + taxCost;
 
-let soldUnits = qty * (sales / 100);
+let soldUnits = qty * sales / 100;
 
 let revenue = soldUnits * sell;
 
 let profit = revenue - landingCost;
 
-let pop = 0;
-let tds = 0;
+let pop = (profit / landingCost) * 100;
 
-if(landingCost > 0){
+let tds = (pop + sales) / 2;
 
-pop = (profit / landingCost) * 100;
-tds = (pop + sales) / 2;
-
-}
 
 document.getElementById("landing").innerHTML =
 "Landing Cost: $" + landingCost.toFixed(2);
