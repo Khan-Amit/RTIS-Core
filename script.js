@@ -1,3 +1,35 @@
+function loadProducts(){
+
+let category = document.getElementById("category").value;
+
+let productSelect = document.getElementById("product");
+
+productSelect.innerHTML = "";
+
+categories[category].forEach(function(p){
+
+let option = document.createElement("option");
+
+option.text = p;
+
+option.value = p;
+
+productSelect.add(option);
+
+});
+
+}
+
+
+function showHS(){
+
+let product = document.getElementById("product").value;
+
+document.getElementById("hs").value = hsDatabase[product];
+
+}
+
+
 function calculate(){
 
 let price = Number(document.getElementById("price").value);
@@ -28,7 +60,6 @@ let pop = (profit / landingCost) * 100;
 
 let tds = (pop + sales) / 2;
 
-
 document.getElementById("landing").innerHTML =
 "Landing Cost: $" + landingCost.toFixed(2);
 
@@ -41,4 +72,4 @@ document.getElementById("pop").innerHTML =
 document.getElementById("tds").innerHTML =
 "TDS Score: " + tds.toFixed(2);
 
-}
+                                         }
