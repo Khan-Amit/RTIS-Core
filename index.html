@@ -3,76 +3,85 @@
 
 <head>
 
+<meta charset="UTF-8">
 <title>RTIS Core Trade Intelligence Simulator</title>
-
-<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
 
 body{
 font-family:Arial;
-background:#f4f4f4;
+background:white;
+color:black;
 padding:20px;
 }
 
+h1{
+margin-bottom:30px;
+}
+
 .card{
-background:white;
+background:#f5f5f5;
 padding:20px;
-margin-bottom:20px;
+margin-bottom:25px;
 border-radius:8px;
 }
 
 input,select{
 width:100%;
-padding:8px;
+padding:10px;
 margin-top:5px;
-margin-bottom:10px;
+margin-bottom:15px;
+font-size:16px;
 }
 
 button{
+width:100%;
+padding:12px;
 background:black;
 color:white;
-padding:10px;
 border:none;
-width:100%;
+font-size:16px;
 }
 
 </style>
 
+<script src="hs_database.js"></script>
+<script src="tax_engine.js"></script>
+<script src="script.js"></script>
+
 </head>
+
 
 <body>
 
-<h2>RTIS Core Trade Intelligence Simulator</h2>
+<h1>RTIS Core Trade Intelligence Simulator</h1>
 
 
 <div class="card">
 
-<h3>Product Search</h3>
+<h2>Product Search</h2>
 
-Search Product
+<label>Search Product</label>
+<input
+type="text"
+id="searchBox"
+placeholder="Type product name"
+onkeyup="searchProduct()"
+/>
 
-<input id="searchBox" onkeyup="searchProduct()" placeholder="Type product name">
-
-Select Product
-
+<label>Select Product</label>
 <select id="product" onchange="showHS()">
-
-<option value="">Select Product</option>
-
+<option>Select Product</option>
 </select>
 
-HS Code
+<label>HS Code</label>
+<input type="text" id="hs" readonly>
 
-<input id="hs" readonly>
+<label>Market Size Low ($)</label>
+<input type="text" id="marketLow" readonly>
 
-Market Size Low ($)
-
-<input id="marketLow" readonly>
-
-Market Size High ($)
-
-<input id="marketHigh" readonly>
+<label>Market Size High ($)</label>
+<input type="text" id="marketHigh" readonly>
 
 </div>
 
@@ -80,31 +89,21 @@ Market Size High ($)
 
 <div class="card">
 
-<h3>Cost Information</h3>
+<h2>Cost Information</h2>
 
-Factory Price ($)
-
+<label>Factory Price ($)</label>
 <input id="price" value="1">
 
-Quantity
-
+<label>Quantity</label>
 <input id="qty" value="1000">
 
-Freight ($)
-
-<input id="freight" value="20">
-
-Insurance ($)
-
-<input id="insurance" value="10">
-
-Country
+<label>Country</label>
 
 <select id="country">
 
 <option value="bangladesh">Bangladesh</option>
-<option value="thailand">Thailand</option>
 <option value="china">China</option>
+<option value="thailand">Thailand</option>
 <option value="india">India</option>
 <option value="usa">USA</option>
 <option value="eu">EU</option>
@@ -112,23 +111,30 @@ Country
 
 </select>
 
+
+<label>Freight ($)</label>
+<input id="freight" value="15">
+
+<label>Insurance ($)</label>
+<input id="insurance" value="15">
+
 </div>
 
 
 
 <div class="card">
 
-<h3>Market Simulation</h3>
+<h2>Market Simulation</h2>
 
-Selling Price ($)
-
+<label>Selling Price ($)</label>
 <input id="sell" value="2">
 
-Expected Sales %
-
+<label>Expected Sales (%)</label>
 <input id="sales" value="80">
 
-<button onclick="calculate()">Run Trade Simulation</button>
+<button onclick="calculate()">
+Calculate Trade
+</button>
 
 </div>
 
@@ -136,36 +142,15 @@ Expected Sales %
 
 <div class="card">
 
-<h3>Results</h3>
+<h2>Results</h2>
 
-<div id="landing">Landing Cost:</div>
-<div id="profit">Profit:</div>
-<div id="pop">POP Score:</div>
-<div id="tds">TDS Score:</div>
+<p id="landing"></p>
+<p id="profit"></p>
+<p id="pop"></p>
+<p id="tds"></p>
 
 </div>
 
 
-<script src="hs_database.js"></script>
-<script src="tax_engine.js"></script>
-<script src="script.js"></script>
-
-<script>
-
-/* Basic protection */
-
-document.addEventListener("contextmenu", e=>e.preventDefault());
-
-document.onkeydown=function(e){
-
-if(e.keyCode==123){return false;}
-
-if(e.ctrlKey && e.shiftKey && e.keyCode=='I'.charCodeAt(0)){return false;}
-
-}
-
-</script>
-
 </body>
-
 </html>
