@@ -1,48 +1,63 @@
+// PRODUCT SEARCH
+
 function searchProduct(){
 
 let input = document.getElementById("searchBox").value.toLowerCase();
-let select = document.getElementById("product");
+let dropdown = document.getElementById("product");
 
-select.innerHTML = "<option>Select Product</option>";
+dropdown.innerHTML = "<option value=''>Select Product</option>";
 
-for(let product in hsDatabase){
+for (let key in hsDatabase){
 
-if(product.toLowerCase().includes(input)){
+if(key.toLowerCase().includes(input)){
 
 let option = document.createElement("option");
-option.value = product;
-option.text = product;
+option.value = key;
+option.textContent = key;
 
-select.appendChild(option);
-
-}
+dropdown.appendChild(option);
 
 }
 
 }
 
+}
 
+
+
+// SHOW HS CODE + MARKET SIZE
 
 function showHS(){
 
 let product = document.getElementById("product").value;
 
-if(!hsDatabase[product]) return;
+if(product === "" || !hsDatabase[product]){
+return;
+}
 
-document.getElementById("hs").value =
-hsDatabase[product].hs;
+let data = hsDatabase[product];
 
-document.getElementById("marketLow").value =
-hsDatabase[product].marketLow;
-
-document.getElementById("marketHigh").value =
-hsDatabase[product].marketHigh;
+document.getElementById("hs").value = data.hs;
+document.getElementById("marketLow").value = data.marketLow;
+document.getElementById("marketHigh").value = data.marketHigh;
 
 }
 
 
 
+// TRADE CALCULATION
+
 function calculate(){
+
+let product = document.getElementById("product").value;
+
+if(product === ""){
+alert("Select a product first");
+return;
+}
+
+let hs = document.getElementById("hs").value;
+let country = document.getElementById("country").value;
 
 let price = Number(document.getElementById("price").value);
 let qty = Number(document.getElementById("qty").value);
@@ -52,26 +67,45 @@ let insurance = Number(document.getElementById("insurance").value);
 let sell = Number(document.getElementById("sell").value);
 let sales = Number(document.getElementById("sales").value);
 
-let country = document.getElementById("country").value;
-let hs = document.getElementById("hs").value;
 
-let baseCost = price * qty;
+// BASE COST
+
+let productCost = price * qty;
+
+
+// TAX FROM ENGINE
 
 let taxRate = getCountryTax(country, hs);
 
-let taxCost = baseCost * taxRate / 100;
+let taxCost = productCost * taxRate / 100;
 
-let landingCost = baseCost + freight + insurance + taxCost;
 
-let soldUnits = qty * sales / 100;
+// LANDING COST
 
-let revenue = soldUnits * sell;
+let landingCost = productCost + freight + insurance + taxCost;
+
+
+// SALES
+
+let unitsSold = qty * sales / 100;
+
+let revenue = unitsSold * sell;
+
+
+// PROFIT
 
 let profit = revenue - landingCost;
 
+
+// POP
+
 let pop = (profit / landingCost) * 100;
 
+
+// TDS
+
 let tds = (pop + sales) / 2;
+
 
 
 document.getElementById("landing").innerHTML =
