@@ -11,7 +11,6 @@
 body{
 font-family:Arial;
 background:white;
-color:black;
 padding:20px;
 }
 
@@ -50,17 +49,14 @@ font-size:16px;
 
 <div class="card">
 
-<h2>Product Search</h2>
+<h2>Product Selection</h2>
 
-<label>Search Product</label>
-<input
-type="text"
-id="searchBox"
-placeholder="Type product name"
-onkeyup="searchProduct()"
-/>
+<label>Category</label>
+<select id="category" onchange="loadProducts()">
+<option>Select Category</option>
+</select>
 
-<label>Select Product</label>
+<label>Product</label>
 <select id="product" onchange="showHS()">
 <option>Select Product</option>
 </select>
@@ -77,7 +73,6 @@ onkeyup="searchProduct()"
 </div>
 
 
-
 <div class="card">
 
 <h2>Cost Information</h2>
@@ -91,15 +86,12 @@ onkeyup="searchProduct()"
 <label>Country</label>
 
 <select id="country">
-
 <option value="bangladesh">Bangladesh</option>
 <option value="china">China</option>
 <option value="thailand">Thailand</option>
 <option value="india">India</option>
 <option value="usa">USA</option>
 <option value="eu">EU</option>
-<option value="russia">Russia</option>
-
 </select>
 
 <label>Freight ($)</label>
@@ -109,7 +101,6 @@ onkeyup="searchProduct()"
 <input id="insurance" value="15">
 
 </div>
-
 
 
 <div class="card">
@@ -122,12 +113,9 @@ onkeyup="searchProduct()"
 <label>Expected Sales (%)</label>
 <input id="sales" value="80">
 
-<button onclick="calculate()">
-Calculate Trade
-</button>
+<button onclick="calculate()">Calculate Trade</button>
 
 </div>
-
 
 
 <div class="card">
@@ -140,7 +128,6 @@ Calculate Trade
 <p id="tds"></p>
 
 </div>
-
 
 
 <script src="hs_database.js"></script>
