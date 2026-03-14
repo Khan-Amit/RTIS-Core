@@ -3,7 +3,7 @@
 
 <head>
 
-<title>RTIS Core Trade Simulator</title>
+<title>RTIS Core Trade Intelligence Simulator</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -45,24 +45,16 @@ width:100%;
 
 <h2>RTIS Core Trade Intelligence Simulator</h2>
 
+
 <div class="card">
 
-<h3>Product Selection</h3>
+<h3>Product Search</h3>
 
-Category
+Search Product
 
-<select id="category" onchange="loadProducts()">
+<input id="searchBox" onkeyup="searchProduct()" placeholder="Type product name">
 
-<option value="">Select Category</option>
-
-<option value="garments">Garments</option>
-<option value="electronics">Electronics</option>
-<option value="food">Food</option>
-<option value="cosmetics">Cosmetics</option>
-
-</select>
-
-Product
+Select Product
 
 <select id="product" onchange="showHS()">
 
@@ -83,6 +75,7 @@ Market Size High ($)
 <input id="marketHigh" readonly>
 
 </div>
+
 
 
 <div class="card">
@@ -122,6 +115,7 @@ Country
 </div>
 
 
+
 <div class="card">
 
 <h3>Market Simulation</h3>
@@ -139,25 +133,38 @@ Expected Sales %
 </div>
 
 
+
 <div class="card">
 
 <h3>Results</h3>
 
 <div id="landing">Landing Cost:</div>
-
 <div id="profit">Profit:</div>
-
 <div id="pop">POP Score:</div>
-
 <div id="tds">TDS Score:</div>
 
 </div>
 
 
-<script src="product_categories.js"></script>
 <script src="hs_database.js"></script>
 <script src="tax_engine.js"></script>
 <script src="script.js"></script>
+
+<script>
+
+/* Basic protection */
+
+document.addEventListener("contextmenu", e=>e.preventDefault());
+
+document.onkeydown=function(e){
+
+if(e.keyCode==123){return false;}
+
+if(e.ctrlKey && e.shiftKey && e.keyCode=='I'.charCodeAt(0)){return false;}
+
+}
+
+</script>
 
 </body>
 
