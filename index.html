@@ -3,7 +3,7 @@
 
 <head>
 
-<title>RTIS Core Trade Calculator</title>
+<title>RTIS Core Trade Simulator</title>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -44,6 +44,32 @@ width:100%;
 <body>
 
 <h2>RTIS-Core Trade Simulator</h2>
+
+<div class="card">
+
+<h3>Product Selection</h3>
+
+Category
+<select id="category" onchange="loadProducts()">
+
+<option value="">Select Category</option>
+<option value="garments">Garments</option>
+<option value="electronics">Electronics</option>
+<option value="food">Food</option>
+<option value="cosmetics">Cosmetics</option>
+
+</select>
+
+Product
+<select id="product" onchange="showHS()">
+<option>Select Product</option>
+</select>
+
+HS Code
+<input id="hs" readonly>
+
+</div>
+
 
 <div class="card">
 
@@ -103,10 +129,11 @@ Expected Sales (%)
 
 </div>
 
-
+<script src="product_categories.js"></script>
+<script src="hs_database.js"></script>
 <script src="tax_engine.js"></script>
 <script src="script.js"></script>
 
 </body>
 
-  </html>
+</html>
