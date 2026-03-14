@@ -1,23 +1,23 @@
 const hsDatabase = {
 
-"T-Shirt":"6109",
-"Jeans":"6203",
-"Jacket":"6201",
-"Cotton Shirt":"6205",
+"T-Shirt":{hs:"6109",category:"garments"},
+"Jeans":{hs:"6203",category:"garments"},
+"Jacket":{hs:"6201",category:"garments"},
+"Cotton Shirt":{hs:"6205",category:"garments"},
 
-"Smartphone":"8517",
-"Laptop":"8471",
-"Headphones":"8518",
-"Tablet":"8471",
+"Smartphone":{hs:"8517",category:"electronics"},
+"Laptop":{hs:"8471",category:"electronics"},
+"Headphones":{hs:"8518",category:"electronics"},
+"Tablet":{hs:"8471",category:"electronics"},
 
-"Rice":"1006",
-"Sugar":"1701",
-"Coffee":"0901",
-"Tea":"0902",
+"Rice":{hs:"1006",category:"food"},
+"Sugar":{hs:"1701",category:"food"},
+"Coffee":{hs:"0901",category:"food"},
+"Tea":{hs:"0902",category:"food"},
 
-"Lipstick":"3304",
-"Perfume":"3303",
-"Face Cream":"3304",
-"Shampoo":"3305"
+"Lipstick":{hs:"3304",category:"cosmetics"},
+"Perfume":{hs:"3303",category:"cosmetics"},
+"Face Cream":{hs:"3304",category:"cosmetics"},
+"Shampoo":{hs:"3305",category:"cosmetics"}
 
 };
